@@ -526,7 +526,7 @@
             }, 20);
         }
 
-        navItems.forEach(item => item.addEventListener('click', (e) => { e.preventDefault(); loadScreen(item.dataset.screen); history.pushState(null, '', `#${item.dataset.screen}`); }));
+        navItems.forEach(item => item.addEventListener('click', (e) => { e.preventDefault(); loadScreen(item.dataset.screen); history.replaceState(null, '', `#${item.dataset.screen}`); }));
         const hash = window.location.hash.slice(1) || 'dashboard';
         loadScreen(hash);
         window.addEventListener('popstate', () => loadScreen(window.location.hash.slice(1) || 'dashboard'));
